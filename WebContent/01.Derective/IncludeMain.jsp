@@ -14,7 +14,7 @@
 		// 오늘날짜 찍기
 		// 내장객체 중 out : 출력객체
 		out.println("오늘날짜출력:" + today);
-		out.printIn("<br>");
+		out.println("<br>");
 		out.println("오늘날짜출력:" + tomorrow);
 	
 	%>
