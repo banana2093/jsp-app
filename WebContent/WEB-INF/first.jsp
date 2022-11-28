@@ -4,9 +4,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>나의 첫 JSP </title>
+<title>나의 첫 JSP!!!</title>
 </head>
 <body>
-<h1>나의 첫 JSPPPPP</h1>
+<h1>나의 첫 JSP</h1>
+
+
 </body>
 </html>
