@@ -36,24 +36,25 @@
 		String email2 = request.getParameter("email2");
 		
 		// 넘어온값 찍기!
- 		//out.println(
- 		//	"<h1>" +
- 		//	"♣ mid : " + mid + "<br>" +
- 		//	"♣ mpw : " + mpw + "<br>" +			
- 		//	"♣ sha256 : " + shampw + "<br>" +
- 		//	"♣ mnm : " + mnm + "<br>" +
- 		//	"♣ gen : " + gen + "<br>" +
- 		//	"♣ email1 : " + email1 + "<br>" +
- 		//	"♣ seleml : " + seleml + "<br>" +
- 		//	"♣ email2 : " + email2 + "</h1>"
- 		// );
-
+// 		out.println(
+// 			"<h1>" +
+// 			"♣ mid : " + mid + "<br>" +
+// 			"♣ mpw : " + mpw + "<br>" +
+// 			"♣ sha256 : " + shampw + "<br>" +
+// 			"♣ mnm : " + mnm + "<br>" +
+// 			"♣ gen : " + gen + "<br>" +
+// 			"♣ email1 : " + email1 + "<br>" +
+// 			"♣ seleml : " + seleml + "<br>" +
+// 			"♣ email2 : " + email2 + "</h1>"
+// 		);
+		
 		// 선택박스값이 "free"일 경우 email2값을 email2에 입력하고
-		// 아닐경우에는 selem1값을 email2에 입력한다
-		if(!seleml.equals("free")){// !을 붙여서 false일떄 true임
-			// "free"가 아닐경우엔 email2에 seleml을 넣어준다.
-			email2 = seleml;
-		}//// if ////
+		// 아닐경우에는 seleml값을 email2에 입력한다!
+		if(!seleml.equals("free")){ // !을 붙여서 false일때 true임
+			// "free"가 아닐경우엔 email2에 seleml을 넣어준다!
+			email2 = seleml; 
+		} ////// if ////////
+
      	
      	// 7. 쿼리문작성 할당
      	String query = "INSERT INTO `member` "+
