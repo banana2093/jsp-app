@@ -69,6 +69,10 @@
 		String pgNum = request.getParameter("pgnum");
 		if(pgNum==null) pgNum="1";
 		
+		// 페이징블록 파라미터 받기(만약없으면 null이므로 "1"할당!)
+		String bkNum = request.getParameter("bknum");
+		if(bkNum==null) bkNum="1";
+		
 		// 검색어관련 파라미터 받기(만약없으면 null값으로 셋팅됨!)
 		String pmCol = request.getParameter("col");
 		String pmKey = request.getParameter("key");
@@ -77,7 +81,7 @@
 		ListController listcon = new ListController(); 
 
 		// 결과 리스트를 변수에 할당
-		String showList = listcon.setList(pgNum,pmCol,pmKey);
+		String showList = listcon.setList(pgNum,bkNum,pmCol,pmKey);
 		
 		/////////////////////////////////////////////////
 		%>
@@ -91,17 +95,17 @@
             		out.print("<tr><td style=\"text-align:center\" "
             	        	+"colspan=\"6\">데이터가 없습니다!</td></tr>");
             	}
-            // 결과 리스트가 있는 경우 출력
-            else{
-            	out.print(showList);
-            }
+            	// 결과 리스트가 있는 경우 출력
+            	else{
+            		out.print(showList);
+            	}
             %>
         </tbody>
         
         <!--테이블 끝줄-->
         <tfoot>
             <tr>
-                <td colspan="6">◀ <%=listcon.setPaging()%> ▶</td>
+                <td colspan="6"><%=listcon.setPaging()%></td>
             </tr>
         </tfoot>
    
@@ -135,14 +139,14 @@
     <script src="../js/jquery-3.6.1.min.js"></script>
     <script>
     $(()=>{ ///////// jQB ///////////////
+    	// 키워드 검색 엔터시 버튼클릭 트리거 발생!    	
+    	$("#keyword").focus().keypress(function(e) {
+   		  if (e.keyCode === 13) {
+   		    e.preventDefault();
+   		    $("#sbtn").trigger("click");
+   		  }
+   		});
     	
-    	// 키워드 검색 엔터시 버튼클릭 트리거 발생!       
-        $("#keyword").focus().keypress(function(e) {
-             if (e.keyCode === 13) {
-               e.preventDefault();
-               $("#sbtn").trigger("click");
-             }
-           });
     	
     	// 파라미터 가져오기 메서드 //////////
     	$.urlParam = function(name) {
@@ -178,7 +182,7 @@
     		// 검색항목 : col=값 / 검색어 : key=값
     		location.href = 
     			"list.jsp?pgnum=1&col="+col+"&key="+key;
-    		// 검색후 리스트는 첫페이지로 무조건 나오게함
+    		// 검색후 리스트는 첫페이지로 무조건 나오게함!
     		
     	}); ///////// click ////////////
     	
